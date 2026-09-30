@@ -202,7 +202,7 @@ func (s *Service) newPacketConnection(ctx context.Context, packetConn *serverPac
 	if err != nil {
 		return err
 	}
-	firstPacket := buf.NewPacket()
+	firstPacket := buf.NewSize(maxPayload)
 	destination, err := packetConn.ReadPacket(firstPacket)
 	if err != nil {
 		firstPacket.Release()
